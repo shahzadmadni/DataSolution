@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DataMaster Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        /* Glassmorphism */
+        .glassmorphic-nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .glassmorphic-nav .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .glassmorphic-nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .glassmorphic-nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+        }
+
+        /* Neumorphism */
+        .neumorphic-card {
+            background: #e0e5ec;
+            border-radius: 15px;
+            box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
+                       -9px -9px 16px rgba(255, 255, 255, 0.5);
+            padding: 2rem;
+            margin: 2rem auto;
+            max-width: 800px;
+        }
+
+        .neumorphic-button {
+            background: #e0e5ec;
+            border: none;
+            border-radius: 10px;
+            padding: 10px 20px;
+            box-shadow: 5px 5px 10px rgba(163, 177, 198, 0.6),
+                       -5px -5px 10px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .neumorphic-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 7px 7px 14px rgba(163, 177, 198, 0.6),
+                       -7px -7px 14px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Gradients */
+        .gradient-bg {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            background: white;
+            color: #667eea;
+            padding: 10px 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        /* Floating Action Button */
+        .fab-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #e0e5ec;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 5px 5px 10px rgba(163, 177, 198, 0.6),
+                       -5px -5px 10px rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .fab-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 7px 7px 14px rgba(163, 177, 198, 0.6),
+                       -7px -7px 14px rgba(255, 255, 255, 0.5);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .glassmorphic-nav {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .neumorphic-card {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="glassmorphic-nav">
+        <div class="logo">
+            <span>DataMaster Pro</span>
+        </div>
+        <ul>
+            <li><a href="#problem-solver">Problem Solver</a></li>
+            <li><a href="#data-checker">Data Checker</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero gradient-bg">
+        <div class="hero-content">
+            <h1>Your One-Stop Data Solution</h1>
+            <p>Solve data problems with ease using Python, Excel, SQL, and more!</p>
+            <a href="#problem-solver" class="cta-button">Get Started</a>
+        </div>
+    </section>
+
+    <!-- Problem Solver Section -->
+    <section id="problem-solver" class="neumorphic-card">
+        <h2>Problem Solver</h2>
+        <form id="problem-form">
+            <textarea placeholder="Describe your problem..."></textarea>
+            <button type="submit" class="neumorphic-button">Get Solution</button>
+        </form>
+        <div id="solution-output" class="solution-output"></div>
+    </section>
+
+    <!-- Data Checker Section -->
+    <section id="data-checker" class="glassmorphic-card">
+        <h2>Data Consistency Checker</h2>
+        <input type="file" id="data-file" accept=".csv, .xlsx, .json">
+        <div id="analysis-result" class="analysis-result"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="gradient-bg">
+        <h2>About Us</h2>
+        <p>We provide comprehensive solutions for all your data-related problems.</p>
+    </section>
+
+    <!-- Floating Action Button -->
+    <div class="fab-button neumorphic-hover">
+        <i class="fas fa-plus"></i>
+    </div>
+
+    <!-- Footer -->
+    <footer class="glassmorphic-nav">
+        <p>&copy; 2023 DataMaster Pro. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Problem Solver Form Submission
+        document.getElementById('problem-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const problem = document.querySelector('#problem-form textarea').value;
+            const solutionOutput = document.getElementById('solution-output');
+            solutionOutput.innerHTML = `
+                <h3>Solution</h3>
+                <p>Here’s how to solve your problem: ${problem}</p>
+            `;
+        });
+
+        // File Upload for Data Checker
+        document.getElementById('data-file').addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            const analysisResult = document.getElementById('analysis-result');
+            if (file) {
+                analysisResult.innerHTML = `
+                    <h3>Analysis Result</h3>
+                    <p>File: ${file.name}</p>
+                    <p>Size: ${(file.size / 1024).toFixed(2)} KB</p>
+                `;
+            }
+        });
+    </script>
+</body>
+</html>
