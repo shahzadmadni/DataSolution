@@ -12,16 +12,17 @@
             font-family: 'Poppins', sans-serif;
             margin: 0;
             padding: 0;
-            background: #f0f0f0;
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
             color: #333;
+            min-height: 100vh;
         }
 
         /* Glassmorphism */
         .glassmorphic-nav {
             background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
@@ -37,6 +38,7 @@
             gap: 10px;
             font-size: 1.5rem;
             font-weight: 700;
+            color: #333;
         }
 
         .glassmorphic-nav ul {
@@ -49,17 +51,29 @@
             text-decoration: none;
             color: #333;
             font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .glassmorphic-nav ul li a:hover {
+            color: #667eea;
         }
 
         /* Neumorphism */
         .neumorphic-card {
             background: #e0e5ec;
-            border-radius: 15px;
+            border-radius: 20px;
             box-shadow: 9px 9px 16px rgba(163, 177, 198, 0.6),
                        -9px -9px 16px rgba(255, 255, 255, 0.5);
             padding: 2rem;
             margin: 2rem auto;
             max-width: 800px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .neumorphic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 12px 12px 24px rgba(163, 177, 198, 0.6),
+                       -12px -12px 24px rgba(255, 255, 255, 0.5);
         }
 
         .neumorphic-button {
@@ -71,6 +85,7 @@
                        -5px -5px 10px rgba(255, 255, 255, 0.5);
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
 
         .neumorphic-button:hover {
@@ -81,7 +96,7 @@
 
         /* Gradients */
         .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             padding: 4rem;
             text-align: center;
@@ -96,11 +111,13 @@
         .hero-content h1 {
             font-size: 3rem;
             margin-bottom: 1rem;
+            animation: fadeIn 1.5s ease-in-out;
         }
 
         .hero-content p {
             font-size: 1.2rem;
             margin-bottom: 2rem;
+            animation: fadeIn 2s ease-in-out;
         }
 
         .cta-button {
@@ -111,6 +128,7 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
+            animation: fadeIn 2.5s ease-in-out;
         }
 
         .cta-button:hover {
@@ -142,6 +160,12 @@
                        -7px -7px 14px rgba(255, 255, 255, 0.5);
         }
 
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .glassmorphic-nav {
@@ -163,6 +187,7 @@
     <!-- Navigation Bar -->
     <nav class="glassmorphic-nav">
         <div class="logo">
+            <i class="fas fa-database"></i>
             <span>DataMaster Pro</span>
         </div>
         <ul>
@@ -176,7 +201,7 @@
     <section class="hero gradient-bg">
         <div class="hero-content">
             <h1>Your One-Stop Data Solution</h1>
-            <p>Solve data problems with ease using Python, Excel, SQL, and more!</p>
+            <p>Solve data problems with ease using AI, Python, Excel, SQL, and more!</p>
             <a href="#problem-solver" class="cta-button">Get Started</a>
         </div>
     </section>
@@ -192,7 +217,7 @@
     </section>
 
     <!-- Data Checker Section -->
-    <section id="data-checker" class="glassmorphic-card">
+    <section id="data-checker" class="neumorphic-card">
         <h2>Data Consistency Checker</h2>
         <input type="file" id="data-file" accept=".csv, .xlsx, .json">
         <div id="analysis-result" class="analysis-result"></div>
